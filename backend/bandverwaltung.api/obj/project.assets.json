@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janeg\\OneDrive\\Dokumente\\Projekte\\bandverwaltung\\backend\\bandverwaltung.application.csproj",
-      "projectName": "bandverwaltung.application",
-      "projectPath": "C:\\Users\\janeg\\OneDrive\\Dokumente\\Projekte\\bandverwaltung\\backend\\bandverwaltung.application.csproj",
+      "projectUniqueName": "C:\\Users\\janeg\\OneDrive\\Dokumente\\Projekte\\bandverwaltung\\backend\\bandverwaltung.api\\bandverwaltung.api.csproj",
+      "projectName": "bandverwaltung.api",
+      "projectPath": "C:\\Users\\janeg\\OneDrive\\Dokumente\\Projekte\\bandverwaltung\\backend\\bandverwaltung.api\\bandverwaltung.api.csproj",
       "packagesPath": "C:\\Users\\janeg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janeg\\OneDrive\\Dokumente\\Projekte\\bandverwaltung\\backend\\obj\\",
+      "outputPath": "C:\\Users\\janeg\\OneDrive\\Dokumente\\Projekte\\bandverwaltung\\backend\\bandverwaltung.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
