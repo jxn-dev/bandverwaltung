@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SongsComponent } from './components/songs/songs.component';
 import { GigsComponent } from './components/gigs/gigs.component';
 import { PhotosComponent } from './components/photos/photos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PhotosComponent } from './components/photos/photos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
