@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { SongsComponent } from 'src/app/components/songs/songs.component';
 import { GigsComponent } from 'src/app/components/gigs/gigs.component';
 import { PhotosComponent } from 'src/app/components/photos/photos.component';
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: 'songs', component: SongsComponent},
