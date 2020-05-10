@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport=false
+      [ngClass]="{hidden: !(isHandset$ | async)}"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/songs" routerLinkActive="active">Songs/Alben</a>
+      <a mat-list-item routerLink="/gigs" routerLinkActive="active">Gigs</a>
+      <a mat-list-item routerLink="/photos" routerLinkActive="active">Photos</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><a routerLink="" routerlinkActive="active">Bandverwaltung Flashtrack</a></span>
+      <span class="spacer"></span>
+      <div [ngClass]="{hidden: (isHandset$ | async)}">
+        <a routerLink="/songs" routerLinkActive="active">Songs/Alben</a>
+        <a routerLink="/gigs" routerLinkActive="active">Gigs</a>
+        <a routerLink="/photos" routerLinkActive="active">Photos</a>
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
