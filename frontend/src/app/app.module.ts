@@ -20,6 +20,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { AlbumTableComponent } from './components/songs/album-table/album-table.component';
 import { GigsTableComponent } from './components/gigs/gigs-table/gigs-table.component';
+import { PhotosListComponent } from './components/photos/photos-list/photos-list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { GigsTableComponent } from './components/gigs/gigs-table/gigs-table.comp
     MainNavComponent,
     SongTableComponent,
     AlbumTableComponent,
-    GigsTableComponent
+    GigsTableComponent,
+    PhotosListComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { GigsTableComponent } from './components/gigs/gigs-table/gigs-table.comp
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
