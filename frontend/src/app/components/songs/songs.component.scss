@@ -1,0 +1,13 @@
+.flexbox{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+.songs{
+    width:50%;
+    float: left;
+}
+.album{
+    width: 50%;
+    float: right;
+}
