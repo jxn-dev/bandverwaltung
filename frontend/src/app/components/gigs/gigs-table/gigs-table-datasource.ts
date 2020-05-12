@@ -7,31 +7,15 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: Replace this with your own data model type
 export interface GigsTableItem {
   name: string;
-  id: number;
+  date: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: GigsTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {date: '12.05.2020', name: 'Download Festival'},
+  {date: '13.05.2020', name: 'Biker Festival Balzers'},
+  {date: '14.05.2020', name: 'BandxOst 2k19'},
+  {date: '15.05.2020', name: 'OpenHair Metalfestival'},
 ];
 
 /**
@@ -95,7 +79,7 @@ export class GigsTableDataSource extends DataSource<GigsTableItem> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'id': return compare(+a.date, +b.date, isAsc);
         default: return 0;
       }
     });

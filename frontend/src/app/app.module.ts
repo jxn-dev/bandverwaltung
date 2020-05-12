@@ -22,6 +22,7 @@ import { AlbumTableComponent } from './components/songs/album-table/album-table.
 import { GigsTableComponent } from './components/gigs/gigs-table/gigs-table.component';
 import { PhotosListComponent } from './components/photos/photos-list/photos-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AlbumTableComponent,
     GigsTableComponent,
     PhotosListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
