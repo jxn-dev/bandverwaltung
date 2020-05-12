@@ -23,6 +23,9 @@ import { GigsTableComponent } from './components/gigs/gigs-table/gigs-table.comp
 import { PhotosListComponent } from './components/photos/photos-list/photos-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './components/home/home.component';
+import { SongsAddComponent } from './components/songs/songs-add/songs-add.component';
+import { AlbumAddComponent } from './components/songs/album-add/album-add.component';
+import { GigsAddComponent } from './components/gigs/gigs-add/gigs-add.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { HomeComponent } from './components/home/home.component';
     GigsTableComponent,
     PhotosListComponent,
     HomeComponent,
+    SongsAddComponent,
+    AlbumAddComponent,
+    GigsAddComponent,
   ],
   imports: [
     BrowserModule,
