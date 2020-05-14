@@ -22,6 +22,8 @@ const EXAMPLE_DATA: SongTableItem[] = [
 
 ];
 
+//TODO: Read from JSON
+
 /**
  * Data source for the SongTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data

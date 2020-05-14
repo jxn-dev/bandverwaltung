@@ -16,6 +16,8 @@ const EXAMPLE_DATA: AlbumTableItem[] = [
   {id: 2, name: 'Test Name'},
 ];
 
+//TODO: Read from JSON
+
 /**
  * Data source for the AlbumTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data

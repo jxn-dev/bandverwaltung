@@ -11,5 +11,5 @@ export class AlbumAddComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  //TODO: Write to JSON
 }

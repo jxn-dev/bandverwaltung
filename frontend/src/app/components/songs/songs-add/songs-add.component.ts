@@ -12,4 +12,5 @@ export class SongsAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //TODO: Write to JSON
 }
