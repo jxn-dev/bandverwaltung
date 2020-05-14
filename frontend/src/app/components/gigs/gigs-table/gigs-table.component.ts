@@ -16,7 +16,7 @@ export class GigsTableComponent implements AfterViewInit, OnInit {
   dataSource: GigsTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'name', 'delete'];
 
   ngOnInit() {
     this.dataSource = new GigsTableDataSource();

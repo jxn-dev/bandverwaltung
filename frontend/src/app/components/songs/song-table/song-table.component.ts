@@ -16,7 +16,7 @@ export class SongTableComponent implements AfterViewInit, OnInit {
   dataSource: SongTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'album'];
+  displayedColumns = ['id', 'name', 'album', 'delete'];
 
   ngOnInit() {
     this.dataSource = new SongTableDataSource();

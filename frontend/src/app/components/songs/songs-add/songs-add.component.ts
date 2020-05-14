@@ -22,5 +22,5 @@ export class SongsAddComponent implements OnInit {
     });*/
   }
 
-  //TODO: Write to JSON
+  // TODO: Write to JSON
 }
