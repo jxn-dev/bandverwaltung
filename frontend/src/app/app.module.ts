@@ -18,6 +18,8 @@ import { SongTableComponent } from './components/songs/song-table/song-table.com
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AlbumTableComponent } from './components/songs/album-table/album-table.component';
 import { GigsTableComponent } from './components/gigs/gigs-table/gigs-table.component';
 import { PhotosListComponent } from './components/photos/photos-list/photos-list.component';
@@ -57,6 +59,8 @@ import { GigsAddComponent } from './components/gigs/gigs-add/gigs-add.component'
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
+    MatStepperModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

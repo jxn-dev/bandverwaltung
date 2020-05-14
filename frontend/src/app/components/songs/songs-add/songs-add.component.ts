@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-songs-add',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongsAddComponent implements OnInit {
 
-  constructor() { }
+ /* isLinear = true;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  constructor(private _formBuiler: FormBuilder) { }*/
 
   ngOnInit(): void {
+    /*this.firstFormGroup = this._formBuiler.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuiler.group({
+      secondCtrl: ['', Validators.required]
+    });*/
   }
 
   //TODO: Write to JSON
