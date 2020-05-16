@@ -1,1 +1,41 @@
-<p>album-add works!</p>
+<mat-horizontal-stepper>
+  <div class="stepper">
+    <mat-step label="Albumnummer">
+      <mat-form-field>
+        <mat-label>Albumnummer</mat-label>
+        <input matInput placeholder="1" required>
+      </mat-form-field>
+      <div class="row">
+        <button mat-button matStepperNext color="primary" class="col s6">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Albumname">
+      <mat-form-field>
+        <mat-label>Albumtitel</mat-label>
+        <input matInput placeholder="Lonely Stranger" required>
+      </mat-form-field>
+      <div class="row">
+        <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
+        <button mat-button matStepperNext color="primary" class="col s6">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Songs">
+      <mat-form-field>
+        <mat-label>Songs</mat-label>
+        <mat-select>
+          <mat-option value="option">Test</mat-option>
+          <mat-option value="option">Test 1</mat-option>
+          <mat-option value="option">Test 2</mat-option>
+          <mat-option value="option">Test 3</mat-option>
+          <mat-option value="option">Test 4</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="row">
+        <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
+        <button mat-button color="primary" class="col s6">Save</button>
+      </div>
+    </mat-step>
+  </div>
+</mat-horizontal-stepper>

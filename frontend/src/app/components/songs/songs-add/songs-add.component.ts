@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-songs-add',
@@ -8,18 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SongsAddComponent implements OnInit {
 
- /* isLinear = true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  constructor(private _formBuiler: FormBuilder) { }*/
-
   ngOnInit(): void {
-    /*this.firstFormGroup = this._formBuiler.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuiler.group({
-      secondCtrl: ['', Validators.required]
-    });*/
   }
 
   // TODO: Write to JSON

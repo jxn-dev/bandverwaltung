@@ -1,1 +1,28 @@
-<p>gigs-add works!</p>
+<mat-horizontal-stepper>
+  <div class="stepper">
+    <mat-step label="Datum">
+      <mat-form-field>
+        <mat-label>Datum</mat-label>
+        <input matInput [matDatepicker]="picker" required>
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="row">
+        <button mat-button matStepperNext color="primary" class="col s6">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Gigname">
+      <mat-form-field>
+        <mat-label>Gigname</mat-label>
+        <input matInput placeholder="Open-Hair-Metalfestival" required>
+      </mat-form-field>
+      <div class="row">
+        <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
+        <button mat-button matStepperNext color="primary" class="col s6">Next</button>
+      </div>
+    </mat-step>
+  </div>
+</mat-horizontal-stepper>

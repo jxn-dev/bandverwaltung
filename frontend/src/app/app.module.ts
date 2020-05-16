@@ -28,6 +28,10 @@ import { HomeComponent } from './components/home/home.component';
 import { SongsAddComponent } from './components/songs/songs-add/songs-add.component';
 import { AlbumAddComponent } from './components/songs/album-add/album-add.component';
 import { GigsAddComponent } from './components/gigs/gigs-add/gigs-add.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,11 @@ import { GigsAddComponent } from './components/gigs/gigs-add/gigs-add.component'
     MatGridListModule,
     MatStepperModule,
     MatFormFieldModule,
+    MatStepperModule,
+    MatInputModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
