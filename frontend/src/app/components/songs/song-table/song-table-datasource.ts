@@ -3,43 +3,26 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { DataService } from 'src/app/shared/services/data.service';
+import { ChangeDetectorRef } from '@angular/core';
 
-// TODO: Replace this with your own data model type
 export interface SongTableItem {
   name: string;
   id: number;
   album: string;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: SongTableItem[] = [
-  {id: 1, name: 'Lonely Stranger', album: 'Delusion'},
-  {id: 2, name: 'Springtide', album: 'Delusion'},
-  {id: 3, name: 'Pressure Kills', album: 'Delusion'},
-  {id: 4, name: 'Free Days', album: 'Delusion'},
-  {id: 5, name: 'Delusion', album: 'Delusion'},
-  {id: 6, name: 'The Path', album: 'Delusion'},
-
-];
-
-//TODO: Read from JSON
-
-/**
- * Data source for the SongTable view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
- * (including sorting, pagination, and filtering).
- */
 export class SongTableDataSource extends DataSource<SongTableItem> {
-  data: SongTableItem[] = EXAMPLE_DATA;
+  songService: DataService = new DataService();
+  data: SongTableItem[] = this.songService.songs;
   paginator: MatPaginator;
   sort: MatSort;
 
   constructor() {
     super();
   }
-
   /**
-   * Connect this data source to the table. The table will only update when
+   * Connect the data source to the table. The table will only update when
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */

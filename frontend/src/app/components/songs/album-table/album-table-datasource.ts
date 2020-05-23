@@ -3,28 +3,17 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { DataService } from 'src/app/shared/services/data.service';
+import { ChangeDetectorRef } from '@angular/core';
 
-// TODO: Replace this with your own data model type
 export interface AlbumTableItem {
   name: string;
   id: number;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: AlbumTableItem[] = [
-  {id: 1, name: 'Delusion'},
-  {id: 2, name: 'Test Name'},
-];
-
-// TODO: Read from JSON
-
-/**
- * Data source for the AlbumTable view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
- * (including sorting, pagination, and filtering).
- */
 export class AlbumTableDataSource extends DataSource<AlbumTableItem> {
-  data: AlbumTableItem[] = EXAMPLE_DATA;
+  albumService: DataService = new DataService();
+  data: AlbumTableItem[] = this.albumService.alben;
   paginator: MatPaginator;
   sort: MatSort;
 

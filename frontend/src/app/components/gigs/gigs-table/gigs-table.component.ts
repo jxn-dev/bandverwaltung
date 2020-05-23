@@ -21,7 +21,7 @@ export class GigsTableComponent implements AfterViewInit, OnInit {
   ngOnInit() {
     this.dataSource = new GigsTableDataSource();
   }
-
+  
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

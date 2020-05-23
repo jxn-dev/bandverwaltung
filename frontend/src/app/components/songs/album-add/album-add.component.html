@@ -3,28 +3,28 @@
     <mat-step label="Albumnummer">
       <mat-form-field>
         <mat-label>Albumnummer</mat-label>
-        <input matInput placeholder="1" required>
+        <input #id matInput placeholder="1" required>
       </mat-form-field>
       <div class="row">
-        <button mat-button matStepperNext color="primary" class="col s6">Next</button>
+        <button mat-button matStepperNext color="primary" class="col s6" (click)="writeId(id.value)">Next</button>
       </div>
     </mat-step>
 
     <mat-step label="Albumname">
       <mat-form-field>
         <mat-label>Albumtitel</mat-label>
-        <input matInput placeholder="Lonely Stranger" required>
+        <input #albumname matInput placeholder="Lonely Stranger" required>
       </mat-form-field>
       <div class="row">
         <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
-        <button mat-button matStepperNext color="primary" class="col s6">Next</button>
+        <button mat-button matStepperNext color="primary" class="col s6" (click)="writeAlbum(albumname.value)">Next</button>
       </div>
     </mat-step>
 
     <mat-step label="Songs">
       <mat-form-field>
         <mat-label>Songs</mat-label>
-        <mat-select>
+        <mat-select #songs>
           <mat-option value="option">Test</mat-option>
           <mat-option value="option">Test 1</mat-option>
           <mat-option value="option">Test 2</mat-option>
@@ -34,7 +34,7 @@
       </mat-form-field>
       <div class="row">
         <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
-        <button mat-button color="primary" class="col s6">Save</button>
+        <button mat-button color="primary" class="col s6" (click)="writeSongs(songs.value)">Save</button>
       </div>
     </mat-step>
   </div>

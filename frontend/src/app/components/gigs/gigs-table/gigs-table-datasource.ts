@@ -3,28 +3,17 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { DataService } from 'src/app/shared/services/data.service';
+import { ChangeDetectorRef } from '@angular/core';
 
-// TODO: Replace this with your own data model type
 export interface GigsTableItem {
   name: string;
   date: string;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: GigsTableItem[] = [
-  {date: '12.05.2020', name: 'Download Festival'},
-  {date: '13.05.2020', name: 'Biker Festival Balzers'},
-  {date: '14.05.2020', name: 'BandxOst 2k19'},
-  {date: '15.05.2020', name: 'OpenHair Metalfestival'},
-];
-
-/**
- * Data source for the GigsTable view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
- * (including sorting, pagination, and filtering).
- */
 export class GigsTableDataSource extends DataSource<GigsTableItem> {
-  data: GigsTableItem[] = EXAMPLE_DATA;
+  gigService: DataService = new DataService();
+  data: GigsTableItem[] = this.gigService.gigs;
   paginator: MatPaginator;
   sort: MatSort;
 
