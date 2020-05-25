@@ -28,7 +28,7 @@
       </mat-form-field>
       <div class="row">
         <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
-        <button mat-button color="primary" class="col s6" (click)="writeAlbum(album.value)">Save</button>
+        <button mat-button color="primary" class="col s6"><a class="link" routerLink='/songs' routerLinkActive="active" (click)="writeAlbum(album.value)">Save</a></button>
       </div>
     </mat-step>
   </div>

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { SongTableItem } from 'src/app/components/songs/song-table/song-table-datasource';
 import { AlbumTableItem } from 'src/app/components/songs/album-table/album-table-datasource';
 import { GigsTableItem } from 'src/app/components/gigs/gigs-table/gigs-table-datasource';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @Injectable()
 export class DataService{
@@ -28,28 +29,33 @@ export class DataService{
     {date: '14.05.2020', name: 'BandxOst 2k19'},
     {date: '15.05.2020', name: 'OpenHair Metalfestival'},
   ];
-  private songsSubject = new BehaviorSubject(this.songs);
-  private albumSubject = new BehaviorSubject(this.alben);
-  private gigSubject = new BehaviorSubject(this.gigs);
-
-  currentSongs = this.songsSubject.asObservable();
-  currentAlben = this.albumSubject.asObservable();
-  currentGigs = this.gigSubject.asObservable();
 
   addToSongs(id: number, name: string, album: string){
     const songToAdd = {id: id, name: name, album: album};
     this.songs.push(songToAdd);
+    this.rerenderSongs(this.songs);
     console.log(this.songs);
   }
   addToAlbum(id: number, name: string){
     const albumToAdd = {id: id, name: name};
     this.alben.push(albumToAdd);
+    this.rerenderAlben(this.alben);
     console.log(this.alben);
   }
   addToGigs(date: string, name: string){
     const gigsToAdd = {date: date, name: name};
     this.gigs.push(gigsToAdd);
+    this.rerenderGigs(this.gigs);
     console.log(this.gigs);
+  }
+  rerenderSongs(data: SongTableItem[]){
+    return data;
+  }
+  rerenderAlben(data: AlbumTableItem[]){
+    return data;
+  }
+  rerenderGigs(data: GigsTableItem[]){
+    return data;
   }
 }
 

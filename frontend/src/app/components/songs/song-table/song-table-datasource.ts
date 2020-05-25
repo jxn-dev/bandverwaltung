@@ -11,7 +11,14 @@ export interface SongTableItem {
   id: number;
   album: string;
 }
-
+ /* const songs: SongTableItem[] = [
+    {id: 1, name: 'Lonely Stranger', album: 'Delusion'},
+    {id: 2, name: 'Springtide', album: 'Delusion'},
+    {id: 3, name: 'Pressure Kills', album: 'Delusion'},
+    {id: 4, name: 'Free Days', album: 'Delusion'},
+    {id: 5, name: 'Delusion', album: 'Delusion'},
+    {id: 6, name: 'The Path', album: 'Delusion'},
+  ];*/
 export class SongTableDataSource extends DataSource<SongTableItem> {
   songService: DataService = new DataService();
   data: SongTableItem[] = this.songService.songs;
