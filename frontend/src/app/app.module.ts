@@ -32,6 +32,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DataService } from './shared/services/data.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     MatDatepickerModule,
   ],
-  providers: [],
+  // New
+  providers: [DataService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

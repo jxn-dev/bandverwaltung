@@ -1,13 +1,8 @@
-import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { map } from 'rxjs/operators';
-import { Observable, of as observableOf, merge, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { SongTableItem } from 'src/app/components/songs/song-table/song-table-datasource';
 import { AlbumTableItem } from 'src/app/components/songs/album-table/album-table-datasource';
 import { GigsTableItem } from 'src/app/components/gigs/gigs-table/gigs-table-datasource';
-import { HttpClient } from 'selenium-webdriver/http';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class DataService{
@@ -30,32 +25,45 @@ export class DataService{
     {date: '15.05.2020', name: 'OpenHair Metalfestival'},
   ];
 
+  // New
+  private _songSubject = new BehaviorSubject<Array<SongTableItem>>(this.songs);
+  songSubject$ = this._songSubject.asObservable();
+
+  constructor(){
+
+  }
   addToSongs(id: number, name: string, album: string){
-    const songToAdd = {id: id, name: name, album: album};
+    const songToAdd ={id: id, name: name, album: album};
     this.songs.push(songToAdd);
-    this.rerenderSongs(this.songs);
+
+    // New
+    this.pushSongs(this.songs);
+
     console.log(this.songs);
   }
   addToAlbum(id: number, name: string){
     const albumToAdd = {id: id, name: name};
     this.alben.push(albumToAdd);
-    this.rerenderAlben(this.alben);
     console.log(this.alben);
   }
   addToGigs(date: string, name: string){
     const gigsToAdd = {date: date, name: name};
     this.gigs.push(gigsToAdd);
-    this.rerenderGigs(this.gigs);
     console.log(this.gigs);
   }
-  rerenderSongs(data: SongTableItem[]){
-    return data;
+
+  // New 
+  pushSongs(songs){
+    this._songSubject.next(songs);
+    return this.songs;
   }
-  rerenderAlben(data: AlbumTableItem[]){
-    return data;
+
+  
+  pushAlben(): AlbumTableItem[]{
+    return this.alben;
   }
-  rerenderGigs(data: GigsTableItem[]){
-    return data;
+  pushGigs(): GigsTableItem[]{
+    return this.gigs;
   }
 }
 

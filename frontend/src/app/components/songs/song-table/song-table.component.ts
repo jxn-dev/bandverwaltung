@@ -14,13 +14,19 @@ export class SongTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<SongTableItem>;
+  //songService: DataService = new DataService();
   dataSource: SongTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'album', 'delete'];
-
+  
+  // New
+  constructor(private songService: DataService){}
+  
   ngOnInit() {
-    this.dataSource = new SongTableDataSource();
+
+    //new Parameter
+    this.dataSource = new SongTableDataSource(this.songService);
   }
 
   ngAfterViewInit() {
