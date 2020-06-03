@@ -4,12 +4,17 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
+import { Injectable } from '@angular/core';
 
 export interface SongTableItem {
   name: string;
   id: number;
   album: string;
 }
+
+@Injectable({
+  providedIn: 'root',
+})
 export class SongTableDataSource extends DataSource<SongTableItem> {
   // data: SongTableItem[]/* = this.songService.songs*/;
   paginator: MatPaginator;
@@ -33,12 +38,14 @@ export class SongTableDataSource extends DataSource<SongTableItem> {
     const dataMutations = [
       observableOf(this.data),
       this.paginator.page,
-      this.sort.sortChange
+      this.sort.sortChange,
     ];
 
-    return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
-    }));
+    return merge(...dataMutations).pipe(
+      map(() => {
+        return this.getPagedData(this.getSortedData([...this.data]));
+      })
+    );
   }
 
   /**
@@ -68,9 +75,12 @@ export class SongTableDataSource extends DataSource<SongTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
-        default: return 0;
+        case 'name':
+          return compare(a.name, b.name, isAsc);
+        case 'id':
+          return compare(+a.id, +b.id, isAsc);
+        default:
+          return 0;
       }
     });
   }

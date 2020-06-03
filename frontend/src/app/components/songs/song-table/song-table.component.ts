@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { SongTableDataSource, SongTableItem } from './song-table-datasource';
-import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-song-table',
@@ -15,18 +14,18 @@ export class SongTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<SongTableItem>;
   //songService: DataService = new DataService();
-  dataSource: SongTableDataSource;
+  // dataSource: SongTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'album', 'delete'];
   
   // New
-  constructor(private songService: DataService){}
+  constructor(public dataSource: SongTableDataSource){}
   
   ngOnInit() {
 
     //new Parameter
-    this.dataSource = new SongTableDataSource(this.songService);
+    // this.dataSource = new SongTableDataSource(this.songService);
   }
 
   ngAfterViewInit() {
