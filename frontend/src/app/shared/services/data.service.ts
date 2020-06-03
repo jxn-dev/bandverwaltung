@@ -25,9 +25,6 @@ export class DataService{
     {date: '15.05.2020', name: 'OpenHair Metalfestival'},
   ];
 
-  // New
-  private _songSubject = new BehaviorSubject<Array<SongTableItem>>(this.songs);
-  songSubject$ = this._songSubject.asObservable();
 
   constructor(){
 
@@ -37,7 +34,7 @@ export class DataService{
     this.songs.push(songToAdd);
 
     // New
-    this.pushSongs(this.songs);
+    this.pushSongs();
 
     console.log(this.songs);
   }
@@ -53,8 +50,7 @@ export class DataService{
   }
 
   // New 
-  pushSongs(songs){
-    this._songSubject.next(songs);
+  pushSongs(){
     return this.songs;
   }
 

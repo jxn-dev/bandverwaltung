@@ -35,6 +35,8 @@ export class SongTableDataSource extends DataSource<SongTableItem> {
   connect(): Observable<SongTableItem[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
+
+    this.data = this.songService.pushSongs();
     const dataMutations = [
       observableOf(this.data),
       this.paginator.page,

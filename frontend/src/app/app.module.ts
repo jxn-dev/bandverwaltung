@@ -33,6 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DataService } from './shared/services/data.service';
+import { DummyComponent } from './components/dummy/dummy.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { DataService } from './shared/services/data.service';
     SongsAddComponent,
     AlbumAddComponent,
     GigsAddComponent,
+    DummyComponent,
   ],
   imports: [
     BrowserModule,
