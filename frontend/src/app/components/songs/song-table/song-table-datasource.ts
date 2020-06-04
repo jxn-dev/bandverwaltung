@@ -16,17 +16,17 @@ export interface SongTableItem {
   providedIn: 'root',
 })
 export class SongTableDataSource extends DataSource<SongTableItem> {
-  // data: SongTableItem[]/* = this.songService.songs*/;
+  data: SongTableItem[];
   paginator: MatPaginator;
   sort: MatSort;
 
   // New Parameter
   constructor(private songService: DataService) {
     super();
+    console.log(songService.songs);
+    this.data = songService.songs;
   }
-  // New
-  data: SongTableItem[] = this.songService.songs;
-  // data: SongTableItem[] = this.songService.songs;
+  
   /**
    * Connect the data source to the table. The table will only update when
    * the returned stream emits new items.
@@ -36,7 +36,6 @@ export class SongTableDataSource extends DataSource<SongTableItem> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
 
-    this.data = this.songService.pushSongs();
     const dataMutations = [
       observableOf(this.data),
       this.paginator.page,
