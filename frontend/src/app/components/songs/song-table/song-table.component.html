@@ -32,12 +32,10 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator #paginator
-      [length]="dataSource?.data.length"
-      [pageIndex]="0"
-      [pageSize]="50"
-      [pageSizeOptions]="[25, 50, 100, 250]">
+  <mat-paginator #paginator [length]="dataSource.songTableItems.length" [pageIndex]="0" [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
-  <button class="mat-raised-button" id="addSong"><a class="link" routerLink="song-add" routerLinkActive="active">Add Song</a></button>
+  <button class="mat-raised-button" id="addSong"><a class="link" routerLink="song-add" routerLinkActive="active">Add
+      Song</a></button>
   <app-dummy></app-dummy>
 </div>

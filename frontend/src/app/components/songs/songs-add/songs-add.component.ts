@@ -10,23 +10,27 @@ import { SongTableDataSource } from '../song-table/song-table-datasource';
 })
 export class SongsAddComponent implements OnInit {
 
-  data: DataService = new DataService();
   id: number;
   songname: string;
   album: string;
+
+  constructor(private dataService: DataService) {
+
+  }
+
   ngOnInit(): void {
   }
 
-  writeId(id: number){
+  writeId(id: number) {
     this.id = id;
   }
-  writeSongname(songname: string){
+  writeSongname(songname: string) {
     this.songname = songname;
   }
-  writeAlbum(album: string){
+  writeAlbum(album: string) {
     this.album = album;
 
-    this.data.addToSongs(this.id, this.songname, this.album);
-    
+    this.dataService.addToSongs(this.id, this.songname, this.album);
+
   }
 }

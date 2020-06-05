@@ -34,6 +34,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DataService } from './shared/services/data.service';
 import { DummyComponent } from './components/dummy/dummy.component';
+import { SongTableDataSource } from './components/songs/song-table/song-table-datasource';
 
 @NgModule({
   declarations: [
@@ -75,8 +76,8 @@ import { DummyComponent } from './components/dummy/dummy.component';
     MatDatepickerModule,
   ],
   // New
-  providers: [DataService],
-  
+  providers: [DataService, SongTableDataSource],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

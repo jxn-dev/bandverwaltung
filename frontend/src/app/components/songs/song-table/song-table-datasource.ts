@@ -1,7 +1,7 @@
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { map } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Injectable } from '@angular/core';
@@ -12,21 +12,16 @@ export interface SongTableItem {
   album: string;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class SongTableDataSource extends DataSource<SongTableItem> {
-  data: SongTableItem[];
   paginator: MatPaginator;
   sort: MatSort;
-
+  songTableItems: Array<SongTableItem> = []
   // New Parameter
   constructor(private songService: DataService) {
     super();
-    console.log(songService.songs);
-    this.data = songService.songs;
   }
-  
+
   /**
    * Connect the data source to the table. The table will only update when
    * the returned stream emits new items.
@@ -37,14 +32,17 @@ export class SongTableDataSource extends DataSource<SongTableItem> {
     // stream for the data-table to consume.
 
     const dataMutations = [
-      observableOf(this.data),
+      this.songService.songObservable,
       this.paginator.page,
       this.sort.sortChange,
     ];
 
     return merge(...dataMutations).pipe(
-      map(() => {
-        return this.getPagedData(this.getSortedData([...this.data]));
+      map((result: any) => {
+        if (Array.isArray(result)) {
+          this.songTableItems = result;
+        }
+        return this.getPagedData(this.getSortedData([...this.songTableItems]));
       })
     );
   }
@@ -53,7 +51,7 @@ export class SongTableDataSource extends DataSource<SongTableItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect() {}
+  disconnect() { }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,

@@ -14,10 +14,8 @@ export class DummyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  showSong(){
-    this.song = {id: '7', name: 'dummy', album: 'dummy' };
-    this.dataService.songs.push(this.song);
-    console.log(this.dataService.songs);
+  showSong() {
+    this.dataService.addToSongs(7, 'Dummysong', 'Dummyalbum');
   }
 
 }
