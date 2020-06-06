@@ -17,25 +17,8 @@
       </mat-form-field>
       <div class="row">
         <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
-        <button mat-button matStepperNext color="primary" class="col s6" (click)="writeAlbum(albumname.value)">Next</button>
+        <button mat-button matStepperNext color="primary" class="col s6" routerLink='/songs' routerLinkActive="active" (click)="writeAlbum(albumname.value)">Save</button>
       </div>
-    </mat-step>
-
-    <mat-step label="Songs">
-      <mat-form-field>
-        <mat-label>Songs</mat-label>
-        <mat-select #songs>
-          <mat-option value="option">Test</mat-option>
-          <mat-option value="option">Test 1</mat-option>
-          <mat-option value="option">Test 2</mat-option>
-          <mat-option value="option">Test 3</mat-option>
-          <mat-option value="option">Test 4</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div class="row">
-        <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
-        <button mat-button color="primary" class="col s6" (click)="writeSongs(songs.value)">Save</button>
-      </div>
-    </mat-step>
+    </mat-step>      
   </div>
 </mat-horizontal-stepper>

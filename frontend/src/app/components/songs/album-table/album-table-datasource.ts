@@ -4,20 +4,19 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 
 export interface AlbumTableItem {
   name: string;
   id: number;
 }
-
+@Injectable()
 export class AlbumTableDataSource extends DataSource<AlbumTableItem> {
-  albumService: DataService = new DataService();
-  data: AlbumTableItem[] = this.albumService.alben;
   paginator: MatPaginator;
   sort: MatSort;
+  albumTableItems: AlbumTableItem[] = [];
 
-  constructor() {
+  constructor(public albumService: DataService) {
     super();
   }
 
@@ -30,14 +29,19 @@ export class AlbumTableDataSource extends DataSource<AlbumTableItem> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      this.albumService.albumObservable,
       this.paginator.page,
-      this.sort.sortChange
+      this.sort.sortChange,
     ];
 
-    return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
-    }));
+    return merge(...dataMutations).pipe(
+      map((result: any) => {
+        if (Array.isArray(result)) {
+          this.albumTableItems = result;
+        }
+        return this.getPagedData(this.getSortedData([...this.albumTableItems]));
+      })
+    );
   }
 
   /**

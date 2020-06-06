@@ -8,12 +8,11 @@ import { AlbumTableDataSource } from '../album-table/album-table-datasource';
   styleUrls: ['./album-add.component.scss']
 })
 export class AlbumAddComponent implements OnInit {
-  data: DataService = new DataService();
   id: number;
   albumname: string;
   songs: string;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
@@ -22,10 +21,7 @@ export class AlbumAddComponent implements OnInit {
   }
   writeAlbum(album: string){
     this.albumname = album;
+    this.dataService.addToAlbum(this.id, this.albumname);
   }
-  writeSongs(songs: string){
-    this.songs = songs;
-    this.data.addToAlbum(this.id, this.albumname);
-    
-  }
+  
 }

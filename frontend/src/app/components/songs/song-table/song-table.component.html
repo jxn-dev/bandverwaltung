@@ -23,7 +23,6 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let row">
-        <button class="mat-flat-button"><i class="material-icons">edit</i></button>
         <button class="mat-flat-button"><i class="material-icons">delete_outlined</i></button>
       </td>
     </ng-container>
@@ -37,5 +36,4 @@
   </mat-paginator>
   <button class="mat-raised-button" id="addSong"><a class="link" routerLink="song-add" routerLinkActive="active">Add
       Song</a></button>
-  <app-dummy></app-dummy>
 </div>

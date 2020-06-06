@@ -33,8 +33,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DataService } from './shared/services/data.service';
-import { DummyComponent } from './components/dummy/dummy.component';
 import { SongTableDataSource } from './components/songs/song-table/song-table-datasource';
+import { AlbumTableDataSource } from './components/songs/album-table/album-table-datasource';
+import { GigsTableDataSource } from './components/gigs/gigs-table/gigs-table-datasource';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,6 @@ import { SongTableDataSource } from './components/songs/song-table/song-table-da
     SongsAddComponent,
     AlbumAddComponent,
     GigsAddComponent,
-    DummyComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +76,7 @@ import { SongTableDataSource } from './components/songs/song-table/song-table-da
     MatDatepickerModule,
   ],
   // New
-  providers: [DataService, SongTableDataSource],
+  providers: [DataService, SongTableDataSource, AlbumTableDataSource, GigsTableDataSource],
 
   bootstrap: [AppComponent]
 })

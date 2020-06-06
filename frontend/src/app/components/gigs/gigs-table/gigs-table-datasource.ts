@@ -4,20 +4,19 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 
 export interface GigsTableItem {
   name: string;
   date: string;
 }
-
+@Injectable()
 export class GigsTableDataSource extends DataSource<GigsTableItem> {
-  gigService: DataService = new DataService();
-  data: GigsTableItem[] = this.gigService.gigs;
   paginator: MatPaginator;
   sort: MatSort;
+  gigTableItems: GigsTableItem[] = [];
 
-  constructor() {
+  constructor(private gigService: DataService) {
     super();
   }
 
@@ -30,15 +29,19 @@ export class GigsTableDataSource extends DataSource<GigsTableItem> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      this.gigService.gigsObservable,
       this.paginator.page,
       this.sort.sortChange
     ];
-
-    return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
-    }));
-  }
+    return merge(...dataMutations).pipe(
+      map((result: any) => {
+        if (Array.isArray(result)) {
+          this.gigTableItems = result;
+        }
+        return this.getPagedData(this.getSortedData([...this.gigTableItems]));
+      })
+    );
+}
 
   /**
    *  Called when the table is being destroyed. Use this function, to clean up

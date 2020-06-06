@@ -21,7 +21,7 @@
       </mat-form-field>
       <div class="row">
         <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
-        <button mat-button matStepperNext color="primary" class="col s6" (click)="writeGig(name.value)">Save</button>
+        <button mat-button matStepperNext color="primary" class="col s6" routerLink='/gigs' routerLinkActive="active" (click)="writeGig(name.value)">Save</button>
       </div>
     </mat-step>
   </div>

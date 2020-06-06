@@ -17,7 +17,6 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let row">
-        <button class="mat-flat-button"><i class="material-icons">edit</i></button>
         <button class="mat-flat-button"><i class="material-icons">delete_outlined</i></button>
       </td>
     </ng-container>
@@ -27,7 +26,7 @@
   </table>
 
   <mat-paginator #paginator
-      [length]="dataSource?.data.length"
+      [length]="dataSource?.albumTableItems.length"
       [pageIndex]="0"
       [pageSize]="50"
       [pageSizeOptions]="[25, 50, 100, 250]">

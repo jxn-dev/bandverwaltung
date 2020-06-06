@@ -19,18 +19,30 @@ export class DataService {
     { id: 2, name: 'Test Name' },
   ];
   gigs: GigsTableItem[] = [
-    { date: '12.05.2020', name: 'Download Festival' },
-    { date: '13.05.2020', name: 'Biker Festival Balzers' },
-    { date: '14.05.2020', name: 'BandxOst 2k19' },
-    { date: '15.05.2020', name: 'OpenHair Metalfestival' },
+    { date: '05/12/2020', name: 'Download Festival' },
+    { date: '05/13/2020', name: 'Biker Festival Balzers' },
+    { date: '05/14/2020', name: 'BandxOst 2k19' },
+    { date: '05/15/2020', name: 'OpenHair Metalfestival' },
   ];
 
   private songSubject: BehaviorSubject<SongTableItem[]>;
   public songObservable: Observable<any>;
 
+  private albumSubject: BehaviorSubject<AlbumTableItem[]>;
+  public albumObservable: Observable<any>;
+
+  private gigsSubject: BehaviorSubject<GigsTableItem[]>;
+  public gigsObservable: Observable<any>;
+
   constructor() {
     this.songSubject = new BehaviorSubject(this.songs);
     this.songObservable = this.songSubject.asObservable();
+
+    this.albumSubject = new BehaviorSubject(this.alben);
+    this.albumObservable = this.albumSubject.asObservable();
+
+    this.gigsSubject = new BehaviorSubject(this.gigs);
+    this.gigsObservable = this.gigsSubject.asObservable();
   }
   addToSongs(id: number, name: string, album: string) {
     const songToAdd = { id: id, name: name, album: album };
@@ -40,22 +52,12 @@ export class DataService {
   addToAlbum(id: number, name: string) {
     const albumToAdd = { id: id, name: name };
     this.alben.push(albumToAdd);
-    console.log(this.alben);
+    this.albumSubject.next(this.alben);
   }
   addToGigs(date: string, name: string) {
     const gigsToAdd = { date: date, name: name };
     this.gigs.push(gigsToAdd);
-    console.log(this.gigs);
-  }
-
-
-
-
-  pushAlben(): AlbumTableItem[] {
-    return this.alben;
-  }
-  pushGigs(): GigsTableItem[] {
-    return this.gigs;
+    this.gigsSubject.next(this.gigs);
   }
 }
 

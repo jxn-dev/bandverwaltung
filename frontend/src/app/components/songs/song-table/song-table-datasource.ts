@@ -16,7 +16,7 @@ export interface SongTableItem {
 export class SongTableDataSource extends DataSource<SongTableItem> {
   paginator: MatPaginator;
   sort: MatSort;
-  songTableItems: Array<SongTableItem> = []
+  songTableItems: Array<SongTableItem> = [];
   // New Parameter
   constructor(private songService: DataService) {
     super();

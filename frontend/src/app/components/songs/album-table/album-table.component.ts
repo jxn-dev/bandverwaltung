@@ -13,13 +13,14 @@ export class AlbumTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<AlbumTableItem>;
-  dataSource: AlbumTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'delete'];
 
+  constructor(public dataSource: AlbumTableDataSource){
+  }
   ngOnInit() {
-    this.dataSource = new AlbumTableDataSource();
+
   }
 
   ngAfterViewInit() {
