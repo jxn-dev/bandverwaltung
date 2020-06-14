@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bandverwaltung.application", "bandverwaltung.application.csproj", "{E6564B1A-967F-4618-8B06-15A89A3F5A3E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bandverwaltung.api", "bandverwaltung.api\bandverwaltung.api.csproj", "{1B688D2A-8015-46EF-93E9-C385392CD7E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "backend.csproj", "{2FB69A61-EE92-4630-85DF-038E0174B367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6564B1A-967F-4618-8B06-15A89A3F5A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6564B1A-967F-4618-8B06-15A89A3F5A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6564B1A-967F-4618-8B06-15A89A3F5A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6564B1A-967F-4618-8B06-15A89A3F5A3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B688D2A-8015-46EF-93E9-C385392CD7E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B688D2A-8015-46EF-93E9-C385392CD7E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B688D2A-8015-46EF-93E9-C385392CD7E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B688D2A-8015-46EF-93E9-C385392CD7E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB69A61-EE92-4630-85DF-038E0174B367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB69A61-EE92-4630-85DF-038E0174B367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB69A61-EE92-4630-85DF-038E0174B367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB69A61-EE92-4630-85DF-038E0174B367}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6BCDED57-2EEE-44A2-A02B-DF24089A9883}
+		SolutionGuid = {4F3747F9-E34B-40E3-A5BE-B4D04A2F5DE3}
 	EndGlobalSection
 EndGlobal
