@@ -175,19 +175,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\alben.cs">
+      <DependentUpon>DataConnection.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\DataConnection.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataConnection.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataConnection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataConnection.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataConnection.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataConnection.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Gigs.cs" />
-    <Compile Include="Models\Songs.cs" />
+    <Compile Include="Models\Gigs.cs">
+      <DependentUpon>DataConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Songs.cs">
+      <DependentUpon>DataConnection.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +214,12 @@
     <Content Include="Models\DataConnection.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DataConnection.Context.cs</LastGenOutput>
+      <DependentUpon>DataConnection.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataConnection.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataConnection.edmx</DependentUpon>
+      <LastGenOutput>DataConnection.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -228,9 +246,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataConnection.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DataConnection.edmx.diagram">
+    <Content Include="Models\DataConnection.edmx.diagram">
       <DependentUpon>DataConnection.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
