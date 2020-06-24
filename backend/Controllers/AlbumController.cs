@@ -42,9 +42,7 @@ namespace backend.Controllers
                 return NotFound();
 
             }
-
             return Ok(album);
-
         }
     }
 }
