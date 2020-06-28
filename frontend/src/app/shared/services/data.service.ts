@@ -3,61 +3,63 @@ import { SongTableItem } from 'src/app/components/songs/song-table/song-table-da
 import { AlbumTableItem } from 'src/app/components/songs/album-table/album-table-datasource';
 import { GigsTableItem } from 'src/app/components/gigs/gigs-table/gigs-table-datasource';
 import { Subject, BehaviorSubject, ReplaySubject, Observable } from 'rxjs';
+import { SongsModel } from '../models/songs/songs.model';
+import { AlbumsModel } from '../models/albums/albums.model';
+import { GigsModel } from '../models/gigs/gigs.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
-  songs: SongTableItem[] = [
-    { id: 1, name: 'Lonely Stranger', album: 'Delusion' },
-    { id: 2, name: 'Springtide', album: 'Delusion' },
-    { id: 3, name: 'Pressure Kills', album: 'Delusion' },
-    { id: 4, name: 'Free Days', album: 'Delusion' },
-    { id: 5, name: 'Delusion', album: 'Delusion' },
-    { id: 6, name: 'The Path', album: 'Delusion' },
-  ];
-  alben: AlbumTableItem[] = [
-    { id: 1, name: 'Delusion' },
-    { id: 2, name: 'Test Name' },
-  ];
-  gigs: GigsTableItem[] = [
-    { date: '05/12/2020', name: 'Download Festival' },
-    { date: '05/13/2020', name: 'Biker Festival Balzers' },
-    { date: '05/14/2020', name: 'BandxOst 2k19' },
-    { date: '05/15/2020', name: 'OpenHair Metalfestival' },
-  ];
+  songsData: SongsModel[];
+  albenData: AlbumsModel[];
+  gigsData: GigsModel[];
+  readonly rootURL = 'http://localhost:55033/api';
 
-  private songSubject: BehaviorSubject<SongTableItem[]>;
+  private songSubject: BehaviorSubject<SongsModel[]>;
   public songObservable: Observable<any>;
 
-  private albumSubject: BehaviorSubject<AlbumTableItem[]>;
+  private albumSubject: BehaviorSubject<AlbumsModel[]>;
   public albumObservable: Observable<any>;
 
-  private gigsSubject: BehaviorSubject<GigsTableItem[]>;
+  private gigsSubject: BehaviorSubject<GigsModel[]>;
   public gigsObservable: Observable<any>;
 
-  constructor() {
-    this.songSubject = new BehaviorSubject(this.songs);
+  constructor(private http: HttpClient) {
+    this.songSubject = new BehaviorSubject(this.songsData);
     this.songObservable = this.songSubject.asObservable();
 
-    this.albumSubject = new BehaviorSubject(this.alben);
+    this.albumSubject = new BehaviorSubject(this.albenData);
     this.albumObservable = this.albumSubject.asObservable();
 
-    this.gigsSubject = new BehaviorSubject(this.gigs);
+    this.gigsSubject = new BehaviorSubject(this.gigsData);
     this.gigsObservable = this.gigsSubject.asObservable();
   }
-  addToSongs(id: number, name: string, album: string) {
-    const songToAdd = { id: id, name: name, album: album };
-    this.songs.push(songToAdd);
-    this.songSubject.next(this.songs);
+  addToSongs(id: number, name: string, album: AlbumsModel) {
+    const songToAdd = { SongId: id, SongName: name, AlbumName: album };
+    this.songsData.push(songToAdd);
+    this.songSubject.next(this.songsData);
+    this.postSongDetail(songToAdd);
   }
   addToAlbum(id: number, name: string) {
-    const albumToAdd = { id: id, name: name };
-    this.alben.push(albumToAdd);
-    this.albumSubject.next(this.alben);
+    const albumToAdd = { AlbumId: id, AlbumName: name };
+    this.albenData.push(albumToAdd);
+    this.albumSubject.next(this.albenData);
+    this.postAlbumDetail(albumToAdd);
   }
-  addToGigs(date: string, name: string) {
-    const gigsToAdd = { date: date, name: name };
-    this.gigs.push(gigsToAdd);
-    this.gigsSubject.next(this.gigs);
+  addToGigs(id: number, date: string, name: string) {
+    const gigsToAdd = { GigId: id, GigDate: date, GigName: name };
+    this.gigsData.push(gigsToAdd);
+    this.gigsSubject.next(this.gigsData);
+    this.postGigDetail(gigsToAdd);
+  }
+  postSongDetail(data: SongsModel){
+    this.http.post(this.rootURL + '/Song', data);
+  }
+  postAlbumDetail(data: AlbumsModel){
+    this.http.post(this.rootURL + '/Album', data);
+  }
+  postGigDetail(data: GigsModel){
+    this.http.post(this.rootURL + '/Gig', data);
   }
 }
 

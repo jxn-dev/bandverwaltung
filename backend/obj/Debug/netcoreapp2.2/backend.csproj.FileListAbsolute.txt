@@ -1,0 +1,3 @@
+C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp2.2\backend.csprojAssemblyReference.cache
+C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp2.2\backend.AssemblyInfoInputs.cache
+C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp2.2\backend.AssemblyInfo.cs

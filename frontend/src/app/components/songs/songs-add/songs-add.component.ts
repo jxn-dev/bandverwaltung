@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { DataService } from 'src/app/shared/services/data.service';
+import { AlbumsModel } from 'src/app/shared/models/albums/albums.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-songs-add',
@@ -10,7 +12,7 @@ import { DataService } from 'src/app/shared/services/data.service';
 export class SongsAddComponent implements OnInit {
   id: number;
   songname: string;
-  album: string;
+  album: AlbumsModel;
 
   constructor(private dataService: DataService) {
 
@@ -24,10 +26,9 @@ export class SongsAddComponent implements OnInit {
   writeSongname(songname: string) {
     this.songname = songname;
   }
-  writeAlbum(album: string) {
+  writeAlbum(album: AlbumsModel) {
     this.album = album;
 
     this.dataService.addToSongs(this.id, this.songname, this.album);
-
   }
 }

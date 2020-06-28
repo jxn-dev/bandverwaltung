@@ -38,7 +38,7 @@ namespace backend.Controllers
             return album;
         }
 
-        // POST api/<controller>
+        // POST api/Album
         [HttpPost]
         public async Task<ActionResult<Album>> PostAlbum(Album album)
         {
@@ -48,7 +48,7 @@ namespace backend.Controllers
             return CreatedAtAction("GetAlbum", new { id = album.AlbumId }, album);
         }
 
-        // PUT api/<controller>/5
+        // PUT api/Album/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAlbum(int id, Album album)
         {
@@ -76,7 +76,7 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        // DELETE api/<controller>/5
+        // DELETE api/Album/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Album>> DeleteAlbum(int id)
         {

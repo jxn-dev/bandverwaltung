@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { AlbumTableDataSource } from '../album-table/album-table-datasource';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-album-add',
@@ -23,5 +24,4 @@ export class AlbumAddComponent implements OnInit {
     this.albumname = album;
     this.dataService.addToAlbum(this.id, this.albumname);
   }
-  
 }

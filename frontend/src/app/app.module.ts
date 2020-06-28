@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SongsComponent } from './components/songs/songs.component';
@@ -36,6 +35,10 @@ import { DataService } from './shared/services/data.service';
 import { SongTableDataSource } from './components/songs/song-table/song-table-datasource';
 import { AlbumTableDataSource } from './components/songs/album-table/album-table-datasource';
 import { GigsTableDataSource } from './components/gigs/gigs-table/gigs-table-datasource';
+import { SongsModel } from './shared/models/songs/songs.model';
+import { AlbumsModel } from './shared/models/albums/albums.model';
+import { GigsModel } from './shared/models/gigs/gigs.model';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import { GigsTableDataSource } from './components/gigs/gigs-table/gigs-table-dat
     SongsAddComponent,
     AlbumAddComponent,
     GigsAddComponent,
+    SongsModel,
+    AlbumsModel,
+    GigsModel,
   ],
   imports: [
     BrowserModule,
@@ -74,9 +80,10 @@ import { GigsTableDataSource } from './components/gigs/gigs-table/gigs-table-dat
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    HttpClientModule,
   ],
   // New
-  providers: [DataService, SongTableDataSource, AlbumTableDataSource, GigsTableDataSource],
+  providers: [DataService, SongTableDataSource, AlbumTableDataSource, GigsTableDataSource, HttpClient],
 
   bootstrap: [AppComponent]
 })

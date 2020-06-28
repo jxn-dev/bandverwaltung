@@ -1,5 +1,15 @@
 <mat-horizontal-stepper>
   <div class="stepper">
+      <mat-step label="Id">
+          <mat-form-field>
+            <mat-label>Gignummer</mat-label>
+            <input #name matInput placeholder="1" required>
+          </mat-form-field>
+          <div class="row">
+            <button mat-button matStepperPrevious color="primary" class="col s6">Back</button>
+            <button mat-button matStepperNext color="primary" class="col s6" routerLink='/gigs' routerLinkActive="active" (click)="writeId(name.value)">Next</button>
+          </div>
+        </mat-step>
     <mat-step label="Datum">
       <mat-form-field>
         <mat-label>Datum</mat-label>

@@ -22,6 +22,15 @@ namespace backend
         {
             string connection = Configuration.GetConnectionString("DevConnection");
             services.AddControllers();
+            services.AddMvc()
+                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0)
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+
+                });
+            services.AddCors();
             services.AddDbContext<BandverwaltungDetailContext>(options => options.UseSqlServer(connection));
         }
 
@@ -32,6 +41,7 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(options => options.WithOrigins("http://localhost:4200/").AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 
