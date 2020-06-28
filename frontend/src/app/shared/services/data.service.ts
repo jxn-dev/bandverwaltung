@@ -61,5 +61,18 @@ export class DataService {
   postGigDetail(data: GigsModel){
     this.http.post(this.rootURL + '/Gig', data);
   }
+  refreshTables(){
+    this.http.get(this.rootURL + '/Song')
+      .toPromise()
+      .then(res =>
+        this.songsData = res as SongsModel[]
+      );
+    this.http.get(this.rootURL + '/Album')
+      .toPromise()
+      .then(res =>
+        this.albenData = res as AlbumsModel[]
+      );
+    this.http.get(this.rootURL + '/Gig').toPromise().then(res => this.gigsData = res as GigsModel[]);
+  }
 }
 
