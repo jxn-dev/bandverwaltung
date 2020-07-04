@@ -36,4 +36,3 @@ C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\bin\Debug\netc
 C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp3.1\backend.dll
 C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp3.1\backend.pdb
 C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp3.1\backend.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\janeg\OneDrive\Dokumente\Projekte\bandverwaltung\backend\obj\Debug\netcoreapp3.1\backend.csprojAssemblyReference.cache

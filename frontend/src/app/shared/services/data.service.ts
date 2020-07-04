@@ -72,7 +72,10 @@ export class DataService {
       .then(res =>
         this.albenData = res as AlbumsModel[]
       );
-    this.http.get(this.rootURL + '/Gig').toPromise().then(res => this.gigsData = res as GigsModel[]);
+    this.http.get(this.rootURL + '/Gig')
+      .toPromise()
+      .then(res =>
+        this.gigsData = res as GigsModel[]);
   }
 }
 
